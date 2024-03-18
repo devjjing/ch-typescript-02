@@ -1,9 +1,10 @@
+type Grade = 1 | 2 | 3 | 4 | 5 | 6 | "A" | "B" | "C" | "D" | "F" | "*" | undefined;
 
 type Student = {
     name: string;
     surName: string;
     age: number;
-    grade: (string | number)[];
+    grade: Grade[];
 }
 
 function extractLength (student: Student){
@@ -18,6 +19,14 @@ function printStudent (student: Student) {
     console.log(name, surName, age);
     console.log("=".repeat(amountOfEqual));
     console.log(grade);
+}
+
+function gradeAvg (grade){
+    let i = 0, sum = 0, ArrayLength = grade.length;
+    while (i < ArrayLength) {
+        sum = sum + grade[i++];
+    }
+     return sum / ArrayLength;
 }
 
 
@@ -46,3 +55,4 @@ const hugo: Student  = {
 printStudent(anton);
 printStudent(stefan);
 printStudent(hugo);
+console.log(gradeAvg)
